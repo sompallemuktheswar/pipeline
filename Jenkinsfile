@@ -15,12 +15,12 @@ pipeline {
         }
         stage('build image ') {
             steps {
-               sh 'docker tag sunny:latest 121835848081.dkr.ecr.eu-west-3.amazonaws.com/sunny:$ BUILD_NUMBER .'
+               sh 'sudo docker tag sunny:latest 121835848081.dkr.ecr.eu-west-3.amazonaws.com/sunny:$ BUILD_NUMBER .'
             }
         }
         stage('push image to ECR Repo') {
             steps {
-              sh  'docker push 121835848081.dkr.ecr.eu-west-3.amazonaws.com/sunny:$BUILD_NUMBER'
+              sh  'sudo docker push 121835848081.dkr.ecr.eu-west-3.amazonaws.com/sunny:$BUILD_NUMBER'
             }
         }
     }
